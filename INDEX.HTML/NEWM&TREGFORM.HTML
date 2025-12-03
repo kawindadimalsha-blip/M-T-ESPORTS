@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&T - ACADEMIC SERIES Registration</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .container-wrapper {
+            max-width: 1024px;
+        }
+        .form-input {
+            @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-600 focus:border-red-600 shadow-sm transition duration-150;
+        }
+        .section-title {
+            @apply text-xl font-bold text-gray-800 border-b border-gray-200 pb-2 mb-4;
+        }
+        .tournament-details-box {
+            background-color: #27272a;
+            color: #f3f4f6;
+        }
+        .btn-primary {
+            @apply bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition duration-300 transform hover:scale-[1.01] disabled:opacity-50;
+        }
+        .admin-login-card {
+             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        /* Custom scrollbar for admin panel */
+        .scrollable-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .scrollable-content::-webkit-scrollbar-track {
+            background: #e5e7eb;
+            border-radius: 10px;
+        }
+        .scrollable-content::-webkit-scrollbar-thumb {
+            background: #9ca3af;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8 flex flex-col items-center justify-center">
+
+    <div class="container-wrapper w-full space-y-12">
+
+        <!-- Header / Banner -->
+        <header class="text-center rounded-2xl shadow-xl overflow-hidden">
+            <div class="p-8 tournament-details-box">
+                <h1 class="text-5xl font-extrabold text-red-500 tracking-tighter">M&T - ACADEMIC SERIES</h1>
+                <p class="text-lg font-medium mt-2">Organized by M&T E SPORTS</p>
+                <p class="text-sm italic mt-4 border-t border-gray-600 pt-3">
+                    "Let’s rise as masters and battle like titans!"
+                </p>
+            </div>
+        </header>
+        
+        <!-- Main Content Grid -->
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Tournament Info (Left Column) -->
+            <div class="lg:col-span-1 p-6 bg-white rounded-2xl shadow-lg border border-red-100">
+                <h2 class="text-2xl font-extrabold text-red-600 mb-4">Tournament Format</h2>
+                <div class="space-y-4 text-gray-700">
+                    
+                    <div class="p-3 bg-red-50 rounded-lg">
+                        <p class="font-semibold text-red-700">Total Teams: 18</p>
+                        <p class="text-sm">Teams will be split into 3 groups: A, B & C.</p>
+                    </div>
+
+                    <h3 class="font-bold mt-4 text-gray-800">Knockout Stage Schedule:</h3>
+                    <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
+                        <li>A vs B – 25/11/08</li>
+                        <li>A vs C – 25/11/09</li>
+                        <li>B vs C – 25/11/10</li>
+                    </ul>
+
+                    <p class="text-sm">➡ 5 matches per day, starting at 8:00 PM</p>
+                    <p class="text-sm font-semibold text-green-700">
+                        Top 12 teams with the highest points will qualify for the Grand Finals.
+                    </p>
+
+                    <h3 class="font-bold mt-4 text-red-600 border-t pt-3 border-gray-200">🔥 GRAND FINALS: CHAMPION RUSH 🔥</h3>
+                    <p class="text-sm">Max 10 matches, Champion Rush Format active.</p>
+                    <p class="text-sm font-semibold text-gray-800">Winning Conditions:</p>
+                    <ul class="list-decimal list-inside space-y-1 ml-4 text-sm">
+                        <li>Reach 80 points.</li>
+                        <li>Secure at least 1 Booyah during the stage.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Registration Form (Right Column - Spanning 2/3) -->
+            <div class="lg:col-span-2 p-6 bg-white rounded-2xl shadow-lg border border-red-100">
+                <h2 class="text-2xl font-extrabold text-gray-800 mb-6">Clan Registration Form</h2>
+
+                <form id="registrationForm" class="space-y-6">
+                    <!-- Section 1: Team Details -->
+                    <fieldset class="p-5 border border-red-200 rounded-xl space-y-4">
+                        <legend class="section-title text-red-600 px-2">Team Information</legend>
+                        
+                        <div>
+                            <label for="teamName" class="block text-sm font-medium text-gray-700 mb-1">Team Name (Required)</label>
+                            <input type="text" id="teamName" required class="form-input" placeholder="e.g., M&T Titans">
+                        </div>
+                        
+                        <div>
+                            <label for="country" class="block text-sm font-medium text-gray-700 mb-1">Country (Required)</label>
+                            <input type="text" id="country" required class="form-input" placeholder="e.g., Sri Lanka">
+                        </div>
+                        
+                        <div>
+                            <label for="flagUrl" class="block text-sm font-medium text-gray-700 mb-1">Team Flag Image URL (Optional)</label>
+                            <input type="url" id="flagUrl" class="form-input" placeholder="Paste image link here (e.g., imgur.com/flag.png)">
+                            <p class="text-xs text-gray-500 mt-1">Note: Direct file upload is complex in this environment, please provide an external image URL.</p>
+                        </div>
+                    </fieldset>
+
+                    <!-- Section 2: Team Leader Details -->
+                    <fieldset class="p-5 border border-red-200 rounded-xl space-y-4">
+                        <legend class="section-title text-red-600 px-2">Team Leader Details</legend>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="leaderIgn" class="block text-sm font-medium text-gray-700 mb-1">Leader IGN (In-Game Name) (Required)</label>
+                                <input type="text" id="leaderIgn" required class="form-input">
+                            </div>
+                            <div>
+                                <label for="leaderId" class="block text-sm font-medium text-gray-700 mb-1">Leader ID (Required)</label>
+                                <input type="text" id="leaderId" required class="form-input">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="leaderPhone" class="block text-sm font-medium text-gray-700 mb-1">Leader Phone Number (Required)</label>
+                            <input type="tel" id="leaderPhone" required class="form-input">
+                        </div>
+                    </fieldset>
+
+                    <!-- Section 3: Players (4 required players) -->
+                    <fieldset class="p-5 border border-red-200 rounded-xl space-y-4">
+                        <legend class="section-title text-red-600 px-2">Remaining Players</legend>
+                        
+                        <!-- Player 2 -->
+                        <h4 class="font-semibold text-gray-700">Player 2 (Required)</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <input type="text" id="p2Ign" required class="form-input" placeholder="IGN">
+                            </div>
+                            <div>
+                                <input type="text" id="p2Id" required class="form-input" placeholder="ID">
+                            </div>
+                        </div>
+                        
+                        <!-- Player 3 -->
+                        <h4 class="font-semibold text-gray-700 pt-2 border-t border-gray-100">Player 3 (Required)</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <input type="text" id="p3Ign" required class="form-input" placeholder="IGN">
+                            </div>
+                            <div>
+                                <input type="text" id="p3Id" required class="form-input" placeholder="ID">
+                            </div>
+                        </div>
+                        
+                        <!-- Player 4 -->
+                        <h4 class="font-semibold text-gray-700 pt-2 border-t border-gray-100">Player 4 (Required)</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <input type="text" id="p4Ign" required class="form-input" placeholder="IGN">
+                            </div>
+                            <div>
+                                <input type="text" id="p4Id" required class="form-input" placeholder="ID">
+                            </div>
+                        </div>
+                        
+                        <!-- Substitute Player -->
+                        <h4 class="font-semibold text-gray-700 pt-2 border-t border-gray-100">Substitute Player (Optional)</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <input type="text" id="subIgn" class="form-input" placeholder="IGN (Optional)">
+                            </div>
+                            <div>
+                                <input type="text" id="subId" class="form-input" placeholder="ID (Optional)">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" id="submitBtn" class="btn-primary w-full flex items-center justify-center">
+                        <span id="submitText">Submit Registration</span>
+                        <div id="loadingSpinner" class="hidden loading-animation ml-3"></div>
+                    </button>
+                    
+                    <!-- Message Box -->
+                    <div id="messageBox" class="hidden p-4 rounded-lg text-center" role="alert"></div>
+                </form>
+            </div>
+        </main>
+        
+        <!-- Admin Panel Section -->
+        <section class="mt-12 p-6 bg-gray-800 rounded-2xl shadow-xl border-t-4 border-red-600">
+            <h2 class="text-3xl font-extrabold text-white mb-6">Organizer Admin Panel</h2>
+            
+            <!-- Admin Login -->
+            <div id="adminLogin" class="admin-login-card bg-gray-700 p-6 rounded-xl max-w-md mx-auto">
+                <p class="text-gray-300 mb-4">Access Registered Teams (Password Protected)</p>
+                <div class="flex space-x-3">
+                    <input type="password" id="adminPassword" placeholder="Enter Password" class="form-input bg-gray-600 text-white border-gray-500 placeholder-gray-400">
+                    <button id="loginBtn" class="btn-primary flex-shrink-0 bg-red-600 hover:bg-red-700 py-2 px-4">Login</button>
+                </div>
+                <p id="loginMessage" class="mt-3 text-sm text-red-400 hidden"></p>
+            </div>
+
+            <!-- Admin Content (Hidden) -->
+            <div id="adminContent" class="hidden mt-8">
+                <h3 class="text-xl font-bold text-red-400 mb-4">Total Registered Teams: <span id="teamCount">0</span></h3>
+                <div id="teamsList" class="scrollable-content h-[400px] overflow-y-auto bg-gray-900 p-4 rounded-xl space-y-4">
+                    <!-- Team cards will be injected here -->
+                    <p class="text-gray-500 text-center py-10" id="noTeamsMsg">Waiting for teams to register...</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, addDoc, onSnapshot, collection, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        
+        // --- GLOBAL CONFIG & FIREBASE SETUP ---
+        const ADMIN_PASSWORD = "mt_admin_2025"; // Admin Password
+        
+        // 🚨🚨🚨 CRITICAL: NETLIFY COMPATIBILITY FIX 🚨🚨🚨
+        // ඔබගේම Firebase Project details මෙතනට ඇතුළු කරන්න.
+        // මෙය නොමැතිව app එක database එකට connect වන්නේ නැත!
+        const LIVE_FIREBASE_CONFIG = {
+          apiKey: "YOUR_API_KEY_HERE", // <-- ඔබගේ සැබෑ API Key එක දමන්න
+          authDomain: "YOUR_PROJECT_ID.firebaseapp.com", // <-- ඔබගේ Auth Domain එක දමන්න
+          projectId: "YOUR_PROJECT_ID_HERE", // <-- ඔබගේ සැබෑ Project ID එක දමන්න
+          storageBucket: "YOUR_PROJECT_ID_HERE.appspot.com",
+          messagingSenderId: "YOUR_SENDER_ID_HERE",
+          appId: "YOUR_APP_ID_HERE"
+        };
+
+        // Use the live configuration
+        let firebaseConfig = LIVE_FIREBASE_CONFIG;
+        let app, db, auth;
+        let userId = null;
+        let isAuthReady = false;
+
+        // Simplified collection path for the live environment
+        const REGISTRATION_COLLECTION_PATH = `tournament_registrations`;
+
+        // DOM Elements
+        const registrationForm = document.getElementById('registrationForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const messageBox = document.getElementById('messageBox');
+        
+        const adminPasswordInput = document.getElementById('adminPassword');
+        const loginBtn = document.getElementById('loginBtn');
+        const loginMessage = document.getElementById('loginMessage');
+        const adminLoginDiv = document.getElementById('adminLogin');
+        const adminContentDiv = document.getElementById('adminContent');
+        const teamsListDiv = document.getElementById('teamsList');
+        const teamCountSpan = document.getElementById('teamCount');
+        const noTeamsMsg = document.getElementById('noTeamsMsg');
+
+        // Styles for custom spinner
+        const spinnerStyle = document.createElement('style');
+        spinnerStyle.textContent = `
+            .loading-animation {
+                border: 4px solid rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                border-top: 4px solid white;
+                width: 20px;
+                height: 20px;
+                animation: spin 1s linear infinite;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(spinnerStyle);
+
+        /**
+         * Initializes Firebase and authenticates the user.
+         */
+        async function initializeFirebase() {
+            try {
+                if (!firebaseConfig.apiKey || firebaseConfig.apiKey === "YOUR_API_KEY_HERE") {
+                    // Firebase config එක අතින් වෙනස් නොකළහොත් error පෙන්වයි.
+                    throw new Error("Firebase configuration is missing or using placeholder values. Please update the LIVE_FIREBASE_CONFIG object in the code.");
+                }
+
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+                
+                // Sign in anonymously for simple public access (Netlify සඳහා සුදුසුම ක්‍රමය)
+                await signInAnonymously(auth); 
+
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        isAuthReady = true;
+                        console.log("Firebase Auth Ready. User ID:", userId);
+                    } else {
+                        console.error("User is not signed in.");
+                        isAuthReady = true; 
+                    }
+                });
+
+            } catch (error) {
+                console.error("Firebase Initialization Error:", error);
+                showMessage('error', `Failed to initialize application services: ${error.message}. Check your Firebase config.`);
+            }
+        }
+
+        /**
+         * Displays a custom message box.
+         * @param {string} type - 'success' or 'error'.
+         * @param {string} message - The message to display.
+         */
+        function showMessage(type, message) {
+            messageBox.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+            
+            if (type === 'success') {
+                messageBox.classList.add('bg-green-100', 'text-green-800', 'font-semibold');
+            } else {
+                messageBox.classList.add('bg-red-100', 'text-red-800', 'font-semibold');
+            }
+            messageBox.textContent = message;
+        }
+
+        /**
+         * Sets the loading state for the submit button.
+         * @param {boolean} loading - True to show loading, false otherwise.
+         */
+        function setLoading(loading) {
+            submitBtn.disabled = loading;
+            if (loading) {
+                submitText.textContent = 'Registering...';
+                loadingSpinner.classList.remove('hidden');
+            } else {
+                submitText.textContent = 'Submit Registration';
+                loadingSpinner.classList.add('hidden');
+            }
+        }
+
+        /**
+         * Retries a fetch/Firebase call with exponential backoff.
+         */
+        async function runWithRetry(task, maxRetries = 5, delay = 1000) {
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    return await task();
+                } catch (error) {
+                    if (i === maxRetries - 1) {
+                        throw error;
+                    }
+                }
+                const waitTime = delay * Math.pow(2, i) + Math.random() * 500;
+                await new Promise(resolve => setTimeout(resolve, waitTime));
+            }
+        }
+        
+        /**
+         * Handles the registration form submission.
+         */
+        async function handleRegistration(e) {
+            e.preventDefault();
+            if (!isAuthReady || !db) {
+                showMessage('error', 'Application services are not fully initialized. Please wait a moment or check your Firebase config.');
+                return;
+            }
+
+            setLoading(true);
+            messageBox.classList.add('hidden');
+            
+            const formData = {
+                teamName: document.getElementById('teamName').value.trim(),
+                country: document.getElementById('country').value.trim(),
+                flagUrl: document.getElementById('flagUrl').value.trim(),
+                leaderIgn: document.getElementById('leaderIgn').value.trim(),
+                leaderId: document.getElementById('leaderId').value.trim(),
+                leaderPhone: document.getElementById('leaderPhone').value.trim(),
+                player2: { ign: document.getElementById('p2Ign').value.trim(), id: document.getElementById('p2Id').value.trim() },
+                player3: { ign: document.getElementById('p3Ign').value.trim(), id: document.getElementById('p3Id').value.trim() },
+                player4: { ign: document.getElementById('p4Ign').value.trim(), id: document.getElementById('p4Id').value.trim() },
+                subPlayer: { ign: document.getElementById('subIgn').value.trim(), id: document.getElementById('subId').value.trim() },
+                registeredAt: serverTimestamp(),
+                registeredBy: userId,
+            };
+
+            // Basic Validation Check (All required fields are non-empty)
+            if (!formData.teamName || !formData.country || !formData.leaderIgn || !formData.leaderId || !formData.leaderPhone || !formData.player2.ign || !formData.player2.id || !formData.player3.ign || !formData.player3.id || !formData.player4.ign || !formData.player4.id) {
+                setLoading(false);
+                showMessage('error', 'Please fill in all required fields (Team Name, Country, Leader, Player 2, 3, & 4 details).');
+                return;
+            }
+
+            try {
+                await runWithRetry(() => addDoc(collection(db, REGISTRATION_COLLECTION_PATH), formData));
+                
+                showMessage('success', `✅ Team '${formData.teamName}' successfully registered for the M&T Academic Series!`);
+                registrationForm.reset(); // Clear the form
+            } catch (error) {
+                console.error("Firestore Add Error:", error);
+                showMessage('error', `❌ Registration failed: ${error.message}. Please check console for details.`);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        // --- ADMIN PANEL LOGIC ---
+
+        /**
+         * Renders the list of registered teams in the admin panel.
+         * @param {Array<Object>} teams - Array of team data.
+         */
+        function renderTeams(teams) {
+            teamCountSpan.textContent = teams.length;
+            teamsListDiv.innerHTML = ''; // Clear previous content
+
+            if (teams.length === 0) {
+                teamsListDiv.appendChild(noTeamsMsg);
+                noTeamsMsg.classList.remove('hidden');
+                return;
+            }
+            noTeamsMsg.classList.add('hidden');
+
+            teams.forEach((team, index) => {
+                const date = team.registeredAt ? new Date(team.registeredAt.seconds * 1000).toLocaleString() : 'N/A';
+                
+                const teamCard = document.createElement('div');
+                teamCard.className = 'bg-gray-800 p-4 rounded-lg border-l-4 border-red-600 shadow-md';
+                teamCard.innerHTML = `
+                    <p class="text-sm text-gray-400 mb-1">Entry #${index + 1} | Registered on: ${date}</p>
+                    <h4 class="text-xl font-bold text-white">${team.teamName} (${team.country})</h4>
+                    ${team.flagUrl ? `<p class="text-xs text-red-400 truncate mt-1">Flag URL: ${team.flagUrl}</p>` : ''}
+                    
+                    <div class="mt-3 text-sm text-gray-300 grid grid-cols-2 gap-x-4">
+                        <p class="font-semibold text-red-500">Leader:</p>
+                        <p>${team.leaderIgn} (ID: ${team.leaderId}) / Tel: ${team.leaderPhone}</p>
+                        
+                        <p class="font-semibold text-red-500 mt-2">Player 2:</p>
+                        <p class="mt-2">${team.player2.ign} (ID: ${team.player2.id})</p>
+                        
+                        <p class="font-semibold text-red-500 mt-2">Player 3:</p>
+                        <p class="mt-2">${team.player3.ign} (ID: ${team.player3.id})</p>
+                        
+                        <p class="font-semibold text-red-500 mt-2">Player 4:</p>
+                        <p class="mt-2">${team.player4.ign} (ID: ${team.player4.id})</p>
+                        
+                        ${team.subPlayer.ign || team.subPlayer.id ? `
+                            <p class="font-semibold text-red-500 mt-2">Sub Player:</p>
+                            <p class="mt-2">${team.subPlayer.ign || 'N/A'} (ID: ${team.subPlayer.id || 'N/A'})</p>
+                        ` : ''}
+                    </div>
+                `;
+                teamsListDiv.appendChild(teamCard);
+            });
+        }
+
+        /**
+         * Starts real-time listening for team registrations (Admin View).
+         */
+        function startTeamsListener() {
+            if (!isAuthReady || !db) {
+                console.error("Cannot start listener: Firebase not ready.");
+                return;
+            }
+
+            const teamsQuery = query(collection(db, REGISTRATION_COLLECTION_PATH));
+            
+            // onSnapshot provides real-time updates - මෙය Netlify වලදීත් ක්‍රියාත්මක වේ.
+            onSnapshot(teamsQuery, (snapshot) => {
+                const teams = [];
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    teams.push({ id: doc.id, ...data });
+                });
+                
+                // Sort the teams by registration date/time (most recent first)
+                teams.sort((a, b) => {
+                    if (a.registeredAt && b.registeredAt) {
+                        return b.registeredAt.seconds - a.registeredAt.seconds;
+                    }
+                    return 0;
+                });
+                
+                renderTeams(teams);
+            }, (error) => {
+                console.error("Firestore Listen Error:", error);
+                loginMessage.textContent = "Error fetching team data.";
+                loginMessage.classList.remove('hidden');
+            });
+        }
+
+        /**
+         * Handles the admin login attempt.
+         */
+        function handleAdminLogin() {
+            const password = adminPasswordInput.value;
+            loginMessage.classList.add('hidden');
+
+            if (password === ADMIN_PASSWORD) {
+                adminLoginDiv.classList.add('hidden');
+                adminContentDiv.classList.remove('hidden');
+                startTeamsListener();
+            } else {
+                loginMessage.textContent = "Incorrect password. Access denied.";
+                loginMessage.classList.remove('hidden');
+                adminPasswordInput.value = '';
+            }
+        }
+        
+        // --- EVENT LISTENERS & INITIALIZATION ---
+
+        registrationForm.addEventListener('submit', handleRegistration);
+        loginBtn.addEventListener('click', handleAdminLogin);
+        adminPasswordInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleAdminLogin();
+            }
+        });
+
+        // Initialize Firebase on load
+        window.onload = initializeFirebase;
+
+    </script>
+</body>
+</html>
